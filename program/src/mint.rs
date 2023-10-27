@@ -36,31 +36,5 @@ csl_spl_assoc_token::src::cpi::create(for_create)?;
 csl_spl_token::src::cpi::mint_to(for_mint_to, 1)?;
 csl_spl_token::src::cpi::set_authority(for_set_authority, 0, None)?;
 
-
-
-
-	csl_spl_token::src::cpi::initialize_mint_2(
-		for_initialize_mint_2,
-		Default::default(),
-		Pubkey::default(),
-		Some(Pubkey::default()),
-	)?;
-
-	csl_spl_assoc_token::src::cpi::create(
-		for_create,
-	)?;
-
-	csl_spl_token::src::cpi::mint_to(
-		for_mint_to,
-		Default::default(),
-	)?;
-
-	csl_spl_token::src::cpi::set_authority(
-		for_set_authority,
-		Default::default(),
-		Some(Pubkey::default()),
-	)?;
-
-
     Ok(())
 }
