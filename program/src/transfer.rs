@@ -25,24 +25,12 @@ pub fn transfer(
     gem.data.assoc_account = Some(*destination.key);
 
 // Create the ATA account for new owner if it hasn't been created
-if assoc_token_account.lamports() == 0 {
-    csl_spl_assoc_token::src::cpi::create(for_create)?;
+    if assoc_token_account.lamports() == 0 {
+       csl_spl_assoc_token::src::cpi::create(for_create)?;
 }
 
-csl_spl_token::src::cpi::transfer_checked(for_transfer_checked, 1, 0)?;
+    csl_spl_token::src::cpi::transfer_checked(for_transfer_checked, 1, 0)?;
 
-
-
-	csl_spl_assoc_token::src::cpi::create(
-		for_create,
-	)?;
-
-	csl_spl_token::src::cpi::transfer_checked(
-		for_transfer_checked,
-		Default::default(),
-		Default::default(),
-	)?;
-
-
+	
     Ok(())
 }
