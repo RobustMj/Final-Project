@@ -19,13 +19,7 @@ pub fn burn(
 ) -> ProgramResult {
     // Implement your business logic here...
     gem.data.assoc_account = None;
-csl_spl_token::src::cpi::burn(for_burn, 1)?;
-
-	csl_spl_token::src::cpi::burn(
-		for_burn,
-		Default::default(),
-	)?;
-
-
+    csl_spl_token::src::cpi::burn(for_burn, 1)?;
+	
     Ok(())
 }
